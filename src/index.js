@@ -23,9 +23,9 @@ async function main() {
   const client = await createClient();
   const channel = client.channels.cache.get(process.env.DISCORD_CHANNEL_ID);
 
-  const price = await getPrice("Wonderland");
-  const shibaPrice = await getPrice("Shiba-inu");
-  const adaPrice = await getPrice("Cardano");
+  const price = await getPrice("wonderland");
+  const shibaPrice = await getPrice("shiba-inu");
+  const adaPrice = await getPrice("cardano");
 
   const embed = new MessageEmbed().setColor("#FFD700").addFields([
     { name: "Time", value: `$${price.usd} ${price["usd_24hr_change"]}` },
