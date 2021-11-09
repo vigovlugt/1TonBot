@@ -12,15 +12,11 @@ async function createClient() {
 
 async function getPrice(id) {
   const res = await fetch(
-    `https://api.coingecko.com/api/v3/simple/price?ids=${id}&vs_currencies=usd`
+    `https://api.coingecko.com/api/v3/simple/price?ids=${id}&vs_currencies=usd&include_24hr_change=true`
   );
   const json = await res.json();
 
-  return json[id]["usd"];
-}
-
-async function get24hChange(id) {
-  const res = await fetch(`https://api.coingecko.com/api/v3/contract/`);
+  return json[id];
 }
 
 async function main() {
@@ -32,9 +28,12 @@ async function main() {
   const adaPrice = await getPrice("Cardano");
 
   const embed = new MessageEmbed().setColor("#FFD700").addFields([
-    { name: "Time", value: "$" + price },
-    { name: "Shiba", value: "$" + shibaPrice },
-    { name: "ADA", value: "$" + adaPrice },
+    { name: "Time", value: `$${price.usd} ${price["usd_24hr_change"]}` },
+    {
+      name: "Shiba",
+      value: `$${shibaPrice.usd} ${shibaPrice["usd_24hr_change"]}`,
+    },
+    { name: "ADA", value: `$${adaPrice.usd} ${adaPrice["usd_24hr_change"]}` },
   ]);
 
   await channel.send({ embeds: [embed] });
