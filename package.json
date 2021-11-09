@@ -1,0 +1,16 @@
+{
+  "name": "1-ton-bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/vigovlugt/1TonBot",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "discord.js": "^13.3.1",
+    "dotenv": "^10.0.0",
+    "node-fetch": "^3.1.0"
+  },
+  "scripts": {
+    "start": "node src/index.js"
+  }
+}
