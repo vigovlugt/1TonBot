@@ -4,6 +4,10 @@ on:
     - cron: "*/5 * * * *"
   workflow_dispatch:
 
+env:
+  DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
+  DISCORD_CHANNEL_ID: ${{ secrets.DISCORD_CHANNEL_ID }}
+
 jobs:
   run:
     runs-on: ubuntu-latest
