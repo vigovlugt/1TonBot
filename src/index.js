@@ -28,12 +28,12 @@ async function main() {
   const adaPrice = await getPrice("cardano");
 
   const embed = new MessageEmbed().setColor("#FFD700").addFields([
-    { name: "Time", value: `$${price.usd} ${price["usd_24hr_change"]}` },
+    { name: "Time", value: `$${price.usd} ${price["usd_24h_change"]}` },
     {
       name: "Shiba",
-      value: `$${shibaPrice.usd} ${shibaPrice["usd_24hr_change"]}`,
+      value: `$${shibaPrice.usd} ${shibaPrice["usd_24h_change"]}`,
     },
-    { name: "ADA", value: `$${adaPrice.usd} ${adaPrice["usd_24hr_change"]}` },
+    { name: "ADA", value: `$${adaPrice.usd} ${adaPrice["usd_24h_change"]}` },
   ]);
 
   await channel.send({ embeds: [embed] });
